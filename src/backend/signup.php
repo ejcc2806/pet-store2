@@ -35,7 +35,7 @@
             if($ans){
                 //echo "User has been created successfully";
                 echo "<script>alert('user has been created. Go to login!')</script>";
-                header('refresh:0;URL=http://localhost/pet-store2/src/signin.html');
+                header('refresh:0;URL=http://localhost/pet-store2/src/login.html');
             }else{
                 echo "error";
             }
