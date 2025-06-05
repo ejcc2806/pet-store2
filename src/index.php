@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['user_id'])){
+        header('Refresh:0; URL=http://localhost/pet-store2/src/login.html');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,6 +53,12 @@
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>list users</span></a>
             </li>
 
             <!-- Divider -->
@@ -330,7 +343,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['user_name']; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -350,7 +363,8 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <!-- <a class="dropdown-item" href="backend/logout.php" data-toggle="modal" data-target="#logoutModal"> -->
+                                <a class="dropdown-item" href="backend/logout.php">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
